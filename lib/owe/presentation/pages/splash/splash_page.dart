@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:owe/owe/presentation/pages/onboarding/onboarding_page.dart';
 import 'package:owe/owe/utils/color_theme.dart';
 
 class SplashPage extends StatefulWidget {
@@ -16,7 +18,7 @@ class SplashPageState extends State<SplashPage> {
   }
 
   isLogged() async {
-
+    Navigator.push(context, MaterialPageRoute(builder: (context) => OnBoardingPage()));
   }
 
   @override
