@@ -1,16 +1,15 @@
-# owe
+# ÒwE Mobile
 
-A new Flutter application.
+Olá, seja bem vind ao repositório da implementação mobile do ÒwE. Aqui você encontrará informações sobre os principais trechos de códigos implementados e os protótipos realizados.
 
-## Getting Started
+## Prototipação
 
-This project is a starting point for a Flutter application.
+Na pasta [prototype](prototype/), você encontra os protótipos em imagens.
 
-A few resources to get you started if this is your first Flutter project:
+## Principais trechos de código
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Com o objetivo de facilitar a navegação neste repositório, listamos os seguintes arquivos, que contém as partes mais importantes da implementação:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. [Splash](android/app/src/main/kotlin/com/hackaton/owe)
+2. [Perfil](android/app/src/main/kotlin/com/hackaton/owe)
+2. [Trilhas](android/app/src/main/kotlin/com/hackaton/owe)
