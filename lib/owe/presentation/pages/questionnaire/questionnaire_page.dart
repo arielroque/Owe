@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:owe/owe/presentation/pages/home/home_navigation.dart';
 import 'package:owe/owe/presentation/pages/trails/professionalizing/professionalizing_page.dart';
 
 class QuestionnairePage extends StatefulWidget {
@@ -65,7 +66,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   ];
 
   void saveQuestionnaire() async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => ProfessionalizingPage(),));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => HomeNavigation(),));
   }
 
   void goBack() {
@@ -525,6 +526,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          leading: BackButton(
+              color: Colors.black
+          ),
           title: Text(
             "Queremos te Conhecer!",
             style: TextStyle(fontWeight: FontWeight.w500, color: Colors.black),

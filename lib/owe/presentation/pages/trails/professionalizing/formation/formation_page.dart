@@ -143,6 +143,9 @@ class _FormationPageState extends State<FormationPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          leading: BackButton(
+              color: Colors.black
+          ),
           title: Text("Formações",
               style:
                   TextStyle(fontWeight: FontWeight.w500, color: Colors.black))),

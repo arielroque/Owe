@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:owe/owe/models/option.dart';
+import 'package:owe/owe/presentation/pages/trails/professionalizing/professionalizing_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -28,7 +29,9 @@ class _HomePageState extends State<HomePage> {
             itemCount: Option.homeOptions.length,
             itemBuilder: (context, index) {
               return GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProfessionalizingPage(),));
+                },
                 child: Padding(
                   padding: EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
                   child: Container(
