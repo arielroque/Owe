@@ -30,6 +30,7 @@ dependencies:
   modern_charts: ^0.1.19
   flutter_circular_chart: ^0.1.0
   google_maps_flutter: ^1.0.3
+  step_progress_indicator: ^0.2.5+8
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -61,6 +62,8 @@ flutter:
     - assets/images/trails/
     - assets/images/trails/beginning/
     - assets/images/medals/
+    - assets/images/splash/
+    - assets/images/persona/persona.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

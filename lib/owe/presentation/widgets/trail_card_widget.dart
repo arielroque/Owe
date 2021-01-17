@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:owe/owe/models/course.dart';
+import 'package:owe/owe/presentation/pages/trails/professionalizing/beginning/course_page.dart';
 
 class TrailCardWidget extends StatelessWidget {
   const TrailCardWidget(
@@ -29,7 +30,8 @@ class TrailCardWidget extends StatelessWidget {
             child: InkWell(
               splashColor: Colors.transparent,
               onTap: () {
-                callback();
+                Navigator.push(context,MaterialPageRoute(
+                    builder: (context) => CoursePage()));
               },
               child: SizedBox(
                 height: 280,

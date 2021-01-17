@@ -41,25 +41,25 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       pages: [
         PageViewModel(
           title: "Explores suas possibilidades",
-          body: "DESCRIÇÃO",
+          body: "Com as trilhas de aprendizagem, você escolhe qual é a sua jornada!",
           image: _buildImage('onboarding_page1'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Descubra novas perspectivas",
-          body: "DESCRIÇÃO",
+          title: "Jornada gamificada de profissionalização",
+          body: "Desbrave trilhas de aprendizagem profissionalizante divertidas e empolgantes, estruturadas no modelo Octalysis Framework.",
           image: _buildImage('onboarding_page2'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Defina seus objetivos",
-          body: "DESCRIÇÃO",
+          title: "Encontre qualificação profissional",
+          body: "Por meio de recursos como  Learning Anallitycs, Inteligência Artifical e Geolocalização, encontre cursos profissionalizantes próximo a você.",
           image: _buildImage('onboarding_page3'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Compreenda o seu projeto de vida",
-          body: "DESCRIÇÃO",
+          title: "Torne-se um Notável!",
+          body: "De acordo com sua evolução na jornada nosso algorítimo irá te direcionar para as vagas que encaixam com o seu perfil.Você está no caminho para ser um Notável!",
           image: _buildImage('onboarding_page4'),
           decoration: pageDecoration,
         ),

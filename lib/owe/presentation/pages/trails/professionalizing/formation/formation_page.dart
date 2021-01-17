@@ -121,6 +121,9 @@ class _FormationPageState extends State<FormationPage>
 
   Completer<GoogleMapController> _controller = Completer();
 
+  List<Marker> _markers = <Marker>[];
+
+
   static final CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),
     zoom: 14.4746,
@@ -136,6 +139,16 @@ class _FormationPageState extends State<FormationPage>
   void initState() {
     animationController = AnimationController(
         duration: const Duration(milliseconds: 2000), vsync: this);
+    _markers.add(
+        Marker(
+            markerId: MarkerId('SomeId'),
+            position: LatLng(37.42796133580664,-122.085749655962),
+            infoWindow: InfoWindow(
+                title: 'The title of the marker',
+                    snippet: "dddd"
+            )
+        ));
+
     super.initState();
   }
 
@@ -162,6 +175,7 @@ class _FormationPageState extends State<FormationPage>
                 child: GoogleMap(
                   mapType: MapType.hybrid,
                   initialCameraPosition: _kGooglePlex,
+                  markers: Set<Marker>.of(_markers),
                   onMapCreated: (GoogleMapController controller) {
                     _controller.complete(controller);
                   },

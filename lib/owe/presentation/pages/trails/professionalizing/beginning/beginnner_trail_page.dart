@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:owe/owe/models/course.dart';
+import 'package:owe/owe/presentation/pages/trails/professionalizing/beginning/course_page.dart';
 import 'package:owe/owe/presentation/widgets/trail_card_widget.dart';
 
 class BeginnerTrailPage extends StatefulWidget {
@@ -30,8 +31,12 @@ class _BeginnerTrailPageState extends State<BeginnerTrailPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(
-        "Começando",
+      appBar: AppBar(
+          leading: BackButton(
+              color: Colors.black
+          ),
+          title: Text(
+        "Recomeço",
         style: TextStyle(fontWeight: FontWeight.w500, color: Colors.black),
       )),
       body: Column(children: [
@@ -67,7 +72,6 @@ class _BeginnerTrailPageState extends State<BeginnerTrailPage>
                     animationController.forward();
                     return TrailCardWidget(
                       callback: () {
-                        widget.callBack();
                       },
                       course: Course.popularCourseList[index],
                       animation: animation,

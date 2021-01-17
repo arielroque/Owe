@@ -48,6 +48,24 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     "Mais de 10 horas"
   ];
 
+  List<String> cityList = [
+    "Água Branca",
+    "Feira Grande",
+    "São Luís do Quitunde",
+    "São José da Laje",
+    "Pariconha",
+  ];
+
+  List<String> stateList = [
+    "Acre (AC)",
+    "Alagoas (AL)",
+    "Amapá (AP)",
+    "Amazonas (AM)",
+    "Bahia (BA)",
+    "Ceará (CE)"
+  ];
+
+
   double _formProgress = 0.15;
 
   bool suggestionsRemovable = false;
@@ -57,6 +75,8 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   String schoolingSelected;
   String timeToActivitySelected;
   String familiarAverageSalarySelected;
+  String stateSelected;
+  String citySelected;
 
   final _textControllers = [
     TextEditingController(),
@@ -232,7 +252,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
               height: 10,
             ),
             DropdownButtonFormField<String>(
-              value: ageRangeSelected,
+              value: stateSelected,
               iconSize: 24,
               isExpanded: true,
               hint: Text("Clique Aqui"),
@@ -247,10 +267,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
               style: TextStyle(color: Colors.black),
               onChanged: (String value) {
                 setState(() {
-                  ageRangeSelected = value;
+                  stateSelected = value;
                 });
               },
-              items: ageRangeList.map<DropdownMenuItem<String>>((String value) {
+              items: stateList.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
@@ -268,7 +288,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
               height: 10,
             ),
             DropdownButtonFormField<String>(
-              value: schoolingSelected,
+              value: citySelected,
               iconSize: 24,
               isExpanded: true,
               hint: Text("Clique Aqui"),
@@ -283,11 +303,11 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
               style: TextStyle(color: Colors.black),
               onChanged: (String value) {
                 setState(() {
-                  schoolingSelected = value;
+                  citySelected = value;
                 });
               },
               items:
-                  schoolingList.map<DropdownMenuItem<String>>((String value) {
+                  cityList.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),

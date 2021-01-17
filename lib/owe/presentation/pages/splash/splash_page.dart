@@ -35,7 +35,7 @@ class SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: ColorThemeApp.primaryColor,
+      color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(36.0),
         child: Column(
@@ -46,7 +46,7 @@ class SplashPageState extends State<SplashPage> {
                 height: 155.0,
                 child: Hero(
                   tag: 'logo',
-                  child: Image.asset("assets/images/splash.png",
+                  child: Image.asset("assets/images/splash/splash.png",
                       fit: BoxFit.contain),
                 )),
             SizedBox(

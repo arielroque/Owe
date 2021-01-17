@@ -59,7 +59,7 @@ class _CoursePageState extends State<CoursePage>
                   children: <Widget>[
                     AspectRatio(
                       aspectRatio: 1.2,
-                      child: Image.asset('assets/design_course/webInterFace.png'),
+                      child: Image.asset('assets/images/trails/beginning/basic_portuguese.png'),
                     ),
                   ],
                 ),
@@ -83,74 +83,45 @@ class _CoursePageState extends State<CoursePage>
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 8, right: 8),
-                      child: Container(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 32.0, left: 18, right: 16),
-                              child: Text(
-                                'Engenharia de Tráfego',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 22,
-                                  letterSpacing: 0.27,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                            AnimatedOpacity(
-                              duration: const Duration(milliseconds: 500),
-                              opacity: opacity1,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8),
-                                child: Row(
-                                  children: <Widget>[
-                                    getTimeBoxUI('40', 'Aulas'),
-                                    getTimeBoxUI('30 horas', 'Tempo'),
-                                    getTimeBoxUI('4.3', 'Avaliação'),
-                                  ],
-                                ),
-                              ),
-                            ),
-
-                            AnimatedOpacity(
-                              duration: const Duration(milliseconds: 500),
-                              opacity: opacity2,
-                              child: Padding(
+                      child: SingleChildScrollView(
+                        child: Container(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Padding(
                                 padding: const EdgeInsets.only(
-                                    left: 16, right: 16, top: 8, bottom: 8),
-                                child: Card(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
+                                    top: 32.0, left: 18, right: 16),
+                                child: Text(
+                                  'Português básico',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 22,
+                                    letterSpacing: 0.27,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                              AnimatedOpacity(
+                                duration: const Duration(milliseconds: 500),
+                                opacity: opacity1,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8),
+                                  child: Row(
                                     children: <Widget>[
-                                      const ListTile(
-                                        title: Text('Aula 1'),
-                                        subtitle: Text('AUla 1'),
-                                        trailing: Card(
-                                          elevation: 3,
-                                          color: ColorThemeApp.secondColor,
-                                          shape: CircleBorder(),
-                                          child: Icon(
-                                            Icons.play_arrow,
-                                            color: Colors.white,
-                                            size: 50,
-                                          ),
-                                        ),
-                                      ),
+                                      getTimeBoxUI('40', 'Aulas'),
+                                      getTimeBoxUI('30 horas', 'Tempo'),
+                                      getTimeBoxUI('4.3', 'Avaliação'),
                                     ],
                                   ),
-                                )
+                                ),
                               ),
-                            ),
 
-                            AnimatedOpacity(
-                              duration: const Duration(milliseconds: 500),
-                              opacity: opacity2,
-                              child: Padding(
+                              AnimatedOpacity(
+                                duration: const Duration(milliseconds: 500),
+                                opacity: opacity2,
+                                child: Padding(
                                   padding: const EdgeInsets.only(
                                       left: 16, right: 16, top: 8, bottom: 8),
                                   child: Card(
@@ -158,8 +129,8 @@ class _CoursePageState extends State<CoursePage>
                                       mainAxisSize: MainAxisSize.min,
                                       children: <Widget>[
                                         const ListTile(
-                                          title: Text('Aula 1'),
-                                          subtitle: Text('AUla 1'),
+                                          title: Text('Apresentação do curso'),
+                                          subtitle: Text('0:55 min '),
                                           trailing: Card(
                                             elevation: 3,
                                             color: ColorThemeApp.secondColor,
@@ -174,40 +145,101 @@ class _CoursePageState extends State<CoursePage>
                                       ],
                                     ),
                                   )
+                                ),
                               ),
-                            ),
 
-                            AnimatedOpacity(
-                              duration: const Duration(milliseconds: 500),
-                              opacity: opacity2,
-                              child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 16, right: 16, top: 8, bottom: 8),
-                                  child: Card(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: <Widget>[
-                                        const ListTile(
-                                          title: Text('Aula 1'),
-                                          subtitle: Text('AUla 1'),
-                                          trailing: Card(
-                                            elevation: 3,
-                                            color: ColorThemeApp.secondColor,
-                                            shape: CircleBorder(),
-                                            child: Icon(
-                                              Icons.play_arrow,
-                                              color: Colors.white,
-                                              size: 50,
+                              AnimatedOpacity(
+                                duration: const Duration(milliseconds: 500),
+                                opacity: opacity2,
+                                child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 16, right: 16, top: 8, bottom: 8),
+                                    child: Card(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          const ListTile(
+                                            title: Text('Morfologia'),
+                                            subtitle: Text('1:04 min'),
+                                            trailing: Card(
+                                              elevation: 3,
+                                              color: ColorThemeApp.secondColor,
+                                              shape: CircleBorder(),
+                                              child: Icon(
+                                                Icons.play_arrow,
+                                                color: Colors.white,
+                                                size: 50,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  )
+                                        ],
+                                      ),
+                                    )
+                                ),
                               ),
-                            ),
 
-                          ],
+                              AnimatedOpacity(
+                                duration: const Duration(milliseconds: 500),
+                                opacity: opacity2,
+                                child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 16, right: 16, top: 8, bottom: 8),
+                                    child: Card(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          const ListTile(
+                                            title: Text('Sintaxe e semântica'),
+                                            subtitle: Text('1:48 min'),
+                                            trailing: Card(
+                                              elevation: 3,
+                                              color: ColorThemeApp.secondColor,
+                                              shape: CircleBorder(),
+                                              child: Icon(
+                                                Icons.play_arrow,
+                                                color: Colors.white,
+                                                size: 50,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                ),
+                              ),
+
+                              AnimatedOpacity(
+                                duration: const Duration(milliseconds: 500),
+                                opacity: opacity2,
+                                child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 16, right: 16, top: 8, bottom: 8),
+                                    child: Card(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          const ListTile(
+                                            title: Text('Regência e concordância'),
+                                            subtitle: Text('1:35 min'),
+                                            trailing: Card(
+                                              elevation: 3,
+                                              color: ColorThemeApp.secondColor,
+                                              shape: CircleBorder(),
+                                              child: Icon(
+                                                Icons.play_arrow,
+                                                color: Colors.white,
+                                                size: 50,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                ),
+                              ),
+
+                            ],
+                          ),
                         ),
                       ),
                     ),
