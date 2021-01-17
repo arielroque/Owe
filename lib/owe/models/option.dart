@@ -3,33 +3,32 @@ import 'package:flutter/cupertino.dart';
 class Option {
   Option({
     this.title = '',
-    this.data = '',
+    this.image = '',
     this.description = '',
     this.color
   });
 
   String title;
   String description;
-  double rating;
-  String data;
+  String image;
   Color color;
 
-  static List<Option> professionalizingOptions = <Option>[
+  static List<Option> homeOptions = <Option>[
     Option(
-      data: '70.0',
-      title: 'Começando',
-      description: "Inicie sua Jornada aqui",
+      image: 'assets/images/trails/entrepreneur_trail.png',
+      title: 'Empreendedora',
+      description: "Trilha Empreendedora",
       color: Color(0xffC2D1F0)),
     Option(
-      data: '40.0',
-      title: 'Formações',
-      description: 'Formações profissionais',
+      image: 'assets/images/trails/entrepreneur_trail.png',
+      title: 'Profissional',
+      description: 'Trilha Profissionalizante',
       color: Color(0xffF8CCE0)
     ),
     Option(
-      data: '0',
-      title: 'Oportunidades',
-      description: "Oportunidades próximas",
+      image: 'assets/images/trails/academic_trail.png',
+      title: 'Escolar',
+      description: "Trilha acadêmica",
         color: Color(0xffE3E4EB)
     ),
   ];

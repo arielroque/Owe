@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:owe/owe/models/course.dart';
 
-class TrailCardWidget extends StatelessWidget {
-  const TrailCardWidget(
+class FormationCardWidget extends StatelessWidget {
+  const FormationCardWidget(
       {Key key,
       this.course,
       this.animationController,
@@ -25,55 +25,57 @@ class TrailCardWidget extends StatelessWidget {
           opacity: animation,
           child: Transform(
             transform: Matrix4.translationValues(
-                0.0, 50 * (1.0 - animation.value), 0.0),
+                100 * (1.0 - animation.value), 0.0, 0.0),
             child: InkWell(
               splashColor: Colors.transparent,
               onTap: () {
                 callback();
               },
               child: SizedBox(
-                height: 280,
+                width: 300,
                 child: Stack(
-                  alignment: AlignmentDirectional.bottomCenter,
                   children: <Widget>[
                     Container(
-                      child: Column(
+                      child: Row(
                         children: <Widget>[
+                          const SizedBox(
+                            width: 48,
+                          ),
                           Expanded(
                             child: Container(
                               decoration: BoxDecoration(
                                 color: Color(0xFFF8FAFB),
                                 borderRadius: const BorderRadius.all(
                                     Radius.circular(16.0)),
-                                // border: new Border.all(
-                                //     color: DesignCourseAppTheme.notWhite),
                               ),
-                              child: Column(
+                              child: Row(
                                 children: <Widget>[
+                                  const SizedBox(
+                                    width: 48 + 24.0,
+                                  ),
                                   Expanded(
                                     child: Container(
                                       child: Column(
                                         children: <Widget>[
                                           Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 16, left: 16, right: 16),
+                                            padding:
+                                                const EdgeInsets.only(top: 16),
                                             child: Text(
                                               course.title,
                                               textAlign: TextAlign.left,
                                               style: TextStyle(
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 16,
-                                                letterSpacing: 0.27,
-                                                color: Colors.black,
-                                              ),
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 16,
+                                                  letterSpacing: 0.27,
+                                                  color: Colors.black),
                                             ),
+                                          ),
+                                          const Expanded(
+                                            child: SizedBox(),
                                           ),
                                           Padding(
                                             padding: const EdgeInsets.only(
-                                                top: 8,
-                                                left: 16,
-                                                right: 16,
-                                                bottom: 8),
+                                                right: 16, bottom: 8),
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
@@ -82,7 +84,7 @@ class TrailCardWidget extends StatelessWidget {
                                                   CrossAxisAlignment.center,
                                               children: <Widget>[
                                                 Text(
-                                                  '${course.lessonCount} aulas',
+                                                  '${course.lessonCount} lesson',
                                                   textAlign: TextAlign.left,
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w200,
@@ -117,45 +119,72 @@ class TrailCardWidget extends StatelessWidget {
                                               ],
                                             ),
                                           ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                bottom: 16, right: 16),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: <Widget>[
+                                                Text(
+                                                  '\$${course.rating}',
+                                                  textAlign: TextAlign.left,
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 18,
+                                                    letterSpacing: 0.27,
+                                                    color: Colors.blue,
+                                                  ),
+                                                ),
+                                                Container(
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.blue,
+                                                    borderRadius:
+                                                        const BorderRadius.all(
+                                                            Radius.circular(
+                                                                8.0)),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            4.0),
+                                                    child: Icon(
+                                                      Icons.add,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),
                                   ),
-                                  const SizedBox(
-                                    width: 48,
-                                  ),
                                 ],
                               ),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 48,
-                          ),
+                          )
                         ],
                       ),
                     ),
                     Container(
                       child: Padding(
-                        padding:
-                            const EdgeInsets.only(top: 24, right: 16, left: 16),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(16.0)),
-                            boxShadow: <BoxShadow>[
-                              BoxShadow(
-                                  color: Colors.grey.withOpacity(0.2),
-                                  offset: const Offset(0.0, 0.0),
-                                  blurRadius: 6.0),
-                            ],
-                          ),
-                          child: ClipRRect(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(16.0)),
-                            child: AspectRatio(
-                                aspectRatio: 1.28,
-                                child: Image.asset(course.imagePath)),
-                          ),
+                        padding: const EdgeInsets.only(
+                            top: 24, bottom: 24, left: 16),
+                        child: Row(
+                          children: <Widget>[
+                            ClipRRect(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(16.0)),
+                              child: AspectRatio(
+                                  aspectRatio: 1.0,
+                                  child: Image.asset(course.imagePath,width: 10,)),
+                            )
+                          ],
                         ),
                       ),
                     ),

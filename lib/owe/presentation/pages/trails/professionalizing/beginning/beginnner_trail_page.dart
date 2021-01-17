@@ -65,11 +65,11 @@ class _BeginnerTrailPageState extends State<BeginnerTrailPage>
                       ),
                     );
                     animationController.forward();
-                    return CategoryView(
+                    return TrailCardWidget(
                       callback: () {
                         widget.callBack();
                       },
-                      category: Course.popularCourseList[index],
+                      course: Course.popularCourseList[index],
                       animation: animation,
                       animationController: animationController,
                     );

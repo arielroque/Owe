@@ -5,12 +5,12 @@ import 'package:owe/owe/models/professionalizing_option.dart';
 import 'package:owe/owe/utils/color_theme.dart';
 
 
-class TrailsPage extends StatefulWidget {
+class ProfessionalizingPage extends StatefulWidget {
   @override
-  _TrailsPageState createState() => _TrailsPageState();
+  _ProfessionalizingPageState createState() => _ProfessionalizingPageState();
 }
 
-class _TrailsPageState extends State<TrailsPage> {
+class _ProfessionalizingPageState extends State<ProfessionalizingPage> {
 
   final GlobalKey<AnimatedCircularChartState> _chartKey = new GlobalKey<AnimatedCircularChartState>();
 

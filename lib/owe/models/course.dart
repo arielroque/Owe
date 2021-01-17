@@ -13,39 +13,39 @@ class Course {
 
   static List<Course> popularCourseList = <Course>[
     Course(
-      imagePath: 'assets/trails/trail_basic_portuguese.png',
+      imagePath: 'assets/images/trails/beginning/basic_portuguese.png',
       title: 'Matemática Básica',
       lessonCount: 24,
       rating: 4.3,
     ),
     Course(
-      imagePath: 'assets/design_course/interFace2.png',
+      imagePath: 'assets/images/trails/beginning/basic_portuguese.png',
       title: 'Português Básico',
       lessonCount: 22,
       rating: 4.6,
     ),
     Course(
-      imagePath: 'assets/design_course/interFace1.png',
+      imagePath: 'assets/images/trails/beginning/basic_portuguese.png',
       title: 'Matemática Financeira',
       lessonCount: 34,
       rating: 4.3,
     ),
     Course(
-      imagePath: 'assets/design_course/interFace2.png',
+      imagePath: 'assets/images/trails/beginning/basic_portuguese.png',
       title: 'Letramento Digital',
       lessonCount: 22,
       rating: 4.6,
     ),
 
     Course(
-      imagePath: 'assets/design_course/interFace2.png',
+      imagePath: 'assets/images/trails/beginning/basic_portuguese.png',
       title: 'Iniciando no mercado de trabalho',
       lessonCount: 22,
       rating: 4.6,
     ),
 
     Course(
-      imagePath: 'assets/design_course/interFace2.png',
+      imagePath: 'assets/images/trails/beginning/basic_portuguese.png',
       title: 'Higiene e segurança no trabalho',
       lessonCount: 22,
       rating: 4.6,
