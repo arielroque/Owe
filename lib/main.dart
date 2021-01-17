@@ -58,6 +58,6 @@ class _OweState extends State<Owe> {
         ),
         routes: {},
         debugShowCheckedModeBanner: false,
-        home: SplashPage());
+        home: OportunitiesPage());
   }
 }

@@ -6,6 +6,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:owe/owe/models/course.dart';
 import 'package:owe/owe/presentation/widgets/formation_card_widget.dart';
 import 'package:owe/owe/utils/color_theme.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FormationPage extends StatefulWidget {
   @override
@@ -18,7 +19,7 @@ class _FormationPageState extends State<FormationPage>
 
   FilterType categoryType = FilterType.presencial;
 
-  String txt = '';
+  String txt = 'presencial';
 
   Future<bool> getData() async {
     await Future<dynamic>.delayed(const Duration(milliseconds: 50));
@@ -30,15 +31,10 @@ class _FormationPageState extends State<FormationPage>
       setState(() {
         txt = 'presencial';
       });
-
-      print("fodofodfdf");
-
     } else if (FilterType.online == categoryTypeData) {
       setState(() {
         txt = 'online';
       });
-
-      print("online");
     }
     return Expanded(
       child: Container(
@@ -123,55 +119,88 @@ class _FormationPageState extends State<FormationPage>
 
   List<Marker> _markers = <Marker>[];
 
-
   static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
+    target: LatLng(-23.408533, -46.763409),
+    zoom: 18.4746,
   );
-
-  static final CameraPosition _kLake = CameraPosition(
-      bearing: 192.8334901395799,
-      target: LatLng(37.43296265331129, -122.08832357078792),
-      tilt: 59.440717697143555,
-      zoom: 19.151926040649414);
 
   @override
   void initState() {
     animationController = AnimationController(
         duration: const Duration(milliseconds: 2000), vsync: this);
-    _markers.add(
-        Marker(
-            markerId: MarkerId('SomeId'),
-            position: LatLng(37.42796133580664,-122.085749655962),
-            infoWindow: InfoWindow(
-                title: 'The title of the marker',
-                    snippet: "dddd"
-            )
-        ));
+    _markers.add(Marker(
+        markerId: MarkerId('Maquinista'),
+        position: LatLng(-23.408523, -46.763419),
+        infoWindow: InfoWindow(
+            title: 'Maquinista',
+            snippet: "Duração:80 horas  Idade Mínima: 18 anos",
+            onTap: () {
+              launch(
+                "https://www.mundosenai.com.br/cursos/qualificacao-profissional/maquinista/",
+                forceSafariVC: true,
+                forceWebView: true,
+                enableJavaScript: true,
+              );
+            })));
+
+    _markers.add(Marker(
+        markerId: MarkerId('Armador de Ferro'),
+        position: LatLng(-23.408333, -46.763409),
+        infoWindow: InfoWindow(
+            title: 'Armador de Ferro',
+            snippet: "Duração:180 horas  Idade Mínima: 18 anos",
+            onTap: () {
+              launch(
+                "https://www.mundosenai.com.br/cursos/qualificacao-profissional/armador-de-ferro/",
+                forceSafariVC: true,
+                forceWebView: true,
+                enableJavaScript: true,
+              );
+            })));
+
+    _markers.add(Marker(
+        markerId: MarkerId('Alfaiate'),
+        position: LatLng(-23.408533, -46.763809),
+        infoWindow: InfoWindow(
+            title: 'Alfaiate',
+            snippet: "Duração:240 horas  Idade Mínima: 16 anos",
+            onTap: () {
+              launch(
+                "https://www.mundosenai.com.br/cursos/qualificacao-profissional/alfaiate/",
+                forceSafariVC: true,
+                forceWebView: true,
+                enableJavaScript: true,
+              );
+            })));
 
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          leading: BackButton(
-              color: Colors.black
+    return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.white, //Changing this will change the color of the TabBar
+      ),
+      home: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+              leading: BackButton(color: Colors.black),
+              title: Text("Formações",
+                  style:
+                  TextStyle(fontWeight: FontWeight.w500, color: Colors.black)),
+            bottom: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.map)),
+                Tab(icon: Icon(Icons.computer)),
+              ],
+            ),
           ),
-          title: Text("Formações",
-              style:
-                  TextStyle(fontWeight: FontWeight.w500, color: Colors.black))),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: formationFilter(),
-          ),
-          if (txt == "online")
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
+          body: TabBarView(
+            children: [
+              Expanded(
                 child: GoogleMap(
                   mapType: MapType.hybrid,
                   initialCameraPosition: _kGooglePlex,
@@ -181,54 +210,57 @@ class _FormationPageState extends State<FormationPage>
                   },
                 ),
               ),
-            ),
+              Expanded(
+                child: FutureBuilder<bool>(
+                  future: getData(),
+                  builder:
+                      (BuildContext context, AsyncSnapshot<bool> snapshot) {
+                    if (!snapshot.hasData) {
+                      return const SizedBox();
+                    } else {
+                      return ListView.builder(
+                        padding: const EdgeInsets.only(
+                            top: 0, bottom: 0, right: 16, left: 16),
+                        itemCount: Course.popularCourseList.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final int count =
+                          Course.popularCourseList.length > 10
+                              ? 10
+                              : Course.popularCourseList.length;
+                          final Animation<double> animation =
+                          Tween<double>(begin: 0.0, end: 1.0).animate(
+                              CurvedAnimation(
+                                  parent: animationController,
+                                  curve: Interval(
+                                      (1 / count) * index, 1.0,
+                                      curve: Curves.fastOutSlowIn)));
+                          animationController.forward();
 
-          if (txt == "presencial")
-          Expanded(
-            child: FutureBuilder<bool>(
-              future: getData(),
-              builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-                if (!snapshot.hasData) {
-                  return const SizedBox();
-                } else {
-                  return ListView.builder(
-                    padding: const EdgeInsets.only(
-                        top: 0, bottom: 0, right: 16, left: 16),
-                    itemCount: Course.popularCourseList.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      final int count = Course.popularCourseList.length > 10
-                          ? 10
-                          : Course.popularCourseList.length;
-                      final Animation<double> animation =
-                      Tween<double>(begin: 0.0, end: 1.0).animate(
-                          CurvedAnimation(
-                              parent: animationController,
-                              curve: Interval((1 / count) * index, 1.0,
-                                  curve: Curves.fastOutSlowIn)));
-                      animationController.forward();
-
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 5,bottom: 5),
-                        child: Container(
-                          height: 150,
-                          child: FormationCardWidget(
-                            course: Course.popularCourseList[index],
-                            animation: animation,
-                            animationController: animationController,
-                            callback: () {
-                            },
-                          ),
-                        ),
+                          return Padding(
+                            padding: const EdgeInsets.only(top: 5, bottom: 5),
+                            child: Container(
+                              height: 150,
+                              child: FormationCardWidget(
+                                course: Course.popularCourseList[index],
+                                animation: animation,
+                                animationController: animationController,
+                                callback: () {},
+                              ),
+                            ),
+                          );
+                        },
                       );
-                    },
-                  );
-                }
-              },
-            ),
+                    }
+                  },
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
+
+
   }
 }
 
