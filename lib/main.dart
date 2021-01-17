@@ -33,7 +33,7 @@ class _OweState extends State<Owe> {
             button: TextStyle(color: Colors.white),
           ),
           buttonTheme: ButtonThemeData(
-            buttonColor: ColorThemeApp.primaryColor,
+            buttonColor: ColorThemeApp.secondColor,
             textTheme: ButtonTextTheme.normal,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0),

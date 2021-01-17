@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:owe/owe/presentation/pages/questionnaire/questionnaire_page.dart';
 import 'package:owe/owe/utils/color_theme.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -13,7 +14,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   void _onIntroEnd(context) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => HomePage()),
+      MaterialPageRoute(builder: (_) => QuestionnairePage()),
     );
   }
 
@@ -40,22 +41,19 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       pages: [
         PageViewModel(
           title: "Explores suas possibilidades",
-          body:
-          "DESCRIÇÃO",
+          body: "DESCRIÇÃO",
           image: _buildImage('onboarding_page1'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Descubra novas perspectivas",
-          body:
-          "DESCRIÇÃO",
+          body: "DESCRIÇÃO",
           image: _buildImage('onboarding_page2'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Defina seus objetivos",
-          body:
-          "DESCRIÇÃO",
+          body: "DESCRIÇÃO",
           image: _buildImage('onboarding_page3'),
           decoration: pageDecoration,
         ),
@@ -73,7 +71,9 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       nextFlex: 0,
       skip: const Text('Pular'),
       next: const Icon(Icons.arrow_forward),
-      done: const Text('Vamos lá', style: TextStyle(fontWeight: FontWeight.w600,color: ColorThemeApp.secondColor)),
+      done: const Text('Vamos lá',
+          style: TextStyle(
+              fontWeight: FontWeight.w600, color: ColorThemeApp.secondColor)),
       dotsDecorator: const DotsDecorator(
         size: Size(10.0, 10.0),
         color: ColorThemeApp.primaryColor,
