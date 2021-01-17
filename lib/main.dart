@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:owe/owe/presentation/pages/trails/beginning/beginnner_trail_page.dart';
+import 'package:owe/owe/presentation/pages/trails/trails_page.dart';
 import 'owe/presentation/pages/splash/splash_page.dart';
 import 'owe/utils/color_theme.dart';
 
@@ -53,6 +55,6 @@ class _OweState extends State<Owe> {
         ),
         routes: {},
         debugShowCheckedModeBanner: false,
-        home: SplashPage());
+        home: TrailsPage());
   }
 }

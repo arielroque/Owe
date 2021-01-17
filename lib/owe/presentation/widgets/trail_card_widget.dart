@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:owe/owe/models/category.dart';
+import 'package:owe/owe/models/course.dart';
 
 class CategoryView extends StatelessWidget {
   const CategoryView(
@@ -82,7 +82,7 @@ class CategoryView extends StatelessWidget {
                                                   CrossAxisAlignment.center,
                                               children: <Widget>[
                                                 Text(
-                                                  '${category.lessonCount} lesson',
+                                                  '${category.lessonCount} aulas',
                                                   textAlign: TextAlign.left,
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w200,

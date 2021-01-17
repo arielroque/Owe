@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:owe/owe/models/category.dart';
+import 'package:owe/owe/models/course.dart';
 import 'package:owe/owe/presentation/widgets/trail_card_widget.dart';
 
 class BeginnerTrailPage extends StatefulWidget {

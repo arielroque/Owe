@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:owe/owe/presentation/pages/trails/beginning/beginnner_trail_page.dart';
+import 'package:owe/owe/presentation/pages/trails/trails_page.dart';
 import 'package:owe/owe/utils/color_theme.dart';
 
 class QuestionnairePage extends StatefulWidget {
@@ -66,7 +67,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   ];
 
   void saveQuestionnaire() async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => BeginnerTrailPage(),));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => TrailsPage(),));
   }
 
   void goBack() {
