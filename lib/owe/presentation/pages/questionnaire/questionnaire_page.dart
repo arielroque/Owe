@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:owe/owe/presentation/pages/trails/beginning/beginnner_trail_page.dart';
 import 'package:owe/owe/utils/color_theme.dart';
 
 class QuestionnairePage extends StatefulWidget {
@@ -64,7 +65,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     TextEditingController()
   ];
 
-  void saveQuestionnaire() async {}
+  void saveQuestionnaire() async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => BeginnerTrailPage(),));
+  }
 
   void goBack() {
     _formProgress -= 1 / _pages.length;
