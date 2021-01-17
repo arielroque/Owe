@@ -4,7 +4,7 @@ Olá, seja bem vind ao repositório da implementação mobile do ÒwE. Aqui voc�
 
 ## Prototipação
 
-Na pasta [prototype](prototype/), você encontra os protótipos em imagens.
+No arquivo [figma.pdf](figma.pdf), você encontra as imagens em Figma do protótipo inicial.
 
 ## Principais trechos de código
 
