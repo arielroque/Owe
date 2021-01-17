@@ -10,6 +10,8 @@ Na pasta [prototype](prototype/), você encontra os protótipos em imagens.
 
 Com o objetivo de facilitar a navegação neste repositório, listamos os seguintes arquivos, que contém as partes mais importantes da implementação:
 
-1. [Splash](android/app/src/main/kotlin/com/hackaton/owe)
-2. [Perfil](android/app/src/main/kotlin/com/hackaton/owe)
-2. [Trilhas](android/app/src/main/kotlin/com/hackaton/owe)
+- [Main](lib/main.dart)
+- [Splash screen](lib/owe/presentation/pages/onboarding)
+- [Questionário](lib/owe/presentation/pages/questionnaire)
+- [Perfil](lib/owe/presentation/pages/home)
+- [Trilhas](lib/owe/presentation/pages/trails/professionalizing)
