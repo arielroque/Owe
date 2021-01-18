@@ -24,6 +24,17 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_spinkit: ^4.1.2+1
+  introduction_screen: ^1.0.9
+  flutter_staggered_animations: ^0.1.2
+  modern_charts: ^0.1.19
+  flutter_circular_chart: ^0.1.0
+  google_maps_flutter: ^1.0.3
+  step_progress_indicator: ^0.2.5+8
+  url_launcher: ^5.7.10
+  fcharts: ^0.0.11
+  dio: ^3.0.10
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -48,6 +59,14 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+
+  assets:
+    - assets/onboarding/
+    - assets/images/trails/
+    - assets/images/trails/beginning/
+    - assets/images/medals/
+    - assets/images/splash/
+    - assets/images/persona/persona.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -74,3 +93,17 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  fonts:
+    - family: Baloo2
+      fonts:
+        - asset: assets/fonts/Baloo2-Regular.ttf
+        - asset: assets/fonts/Baloo2-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Baloo2-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Baloo2-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Baloo2-SemiBold.ttf
+          weight: 600
+
