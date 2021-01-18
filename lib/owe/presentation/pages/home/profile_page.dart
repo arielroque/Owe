@@ -94,7 +94,10 @@ class _ProfilePageState extends State<ProfilePage> {
                   maxLines: 5,
                   decoration: InputDecoration(
                     hintText:
-                        "Bem, eu procuro um curso que possa me dar a possibilidade de ter um emprego, pois faz muito tempo que parei os estudos e agora sinto a necessidade de ter uma renda pra ajudar aos meus pais.",
+                        "Bem, eu procuro um curso que possa me dar a possibilidade"
+                            " de ter um emprego, pois faz muito tempo que parei "
+                            "os estudos e agora sinto a necessidade de ter uma "
+                            "renda pra ajudar aos meus pais.",
                   ),
                 ),
               ],

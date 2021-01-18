@@ -18,7 +18,6 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   final _pageViewController = PageController();
   final _formKey = GlobalKey<FormState>();
 
-  
   List<Widget> _pages;
   List<String> ageRangeList = [
     "menor que 18",
@@ -51,20 +50,8 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     "Mais de 10 horas"
   ];
 
-  List<String> cityList = [
-    "Água Branca",
-    "Feira Grande",
-    "São Luís do Quitunde",
-    "São José da Laje",
-    "Pariconha",
-  ];
+  List<String> doCourseList = ["Sim", "não", "Ainda não decidi"];
 
-  List<String> doCourseList = [
-    "Sim",
-    "não",
-    "Ainda não decidi"
-  ];
-  
   double _formProgress = 0.15;
 
   bool suggestionsRemovable = false;
@@ -80,18 +67,19 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   final _textController = TextEditingController();
 
   void saveQuestionnaire() async {
-
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
         return Dialog(
-          child:  Row(
+          child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-               CircularProgressIndicator(),
-              SizedBox(width: 5,),
-               Text("Registrando"),
+              CircularProgressIndicator(),
+              SizedBox(
+                width: 5,
+              ),
+              Text("Registrando"),
             ],
           ),
         );
@@ -99,16 +87,24 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     );
 
     String userWish = _textController.text;
-    
-    Response response = await Dio().post("https://owe-monolithic.herokuapp.com/registerUserData", data: {"age_range": ageRangeSelected, "schooling":
-    schoolingSelected,"average_salary":familiarAverageSalarySelected,"do_course":doCourseSelected,"activity time":activityTime,
-      "user_wish":userWish});
 
+    Response response = await Dio()
+        .post("https://owe-monolithic.herokuapp.com/registerUserData", data: {
+      "age_range": ageRangeSelected,
+      "schooling": schoolingSelected,
+      "average_salary": familiarAverageSalarySelected,
+      "do_course": doCourseSelected,
+      "activity time": activityTime,
+      "user_wish": userWish
+    });
 
-    if(response.data["status"] == Constants.success){
-      Navigator.push(context, MaterialPageRoute(builder: (context) => HomeNavigation(),));
-    }
-    else{
+    if (response.data["status"] == Constants.success) {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomeNavigation(),
+          ));
+    } else {
       showDialog(
         context: context,
         barrierDismissible: false,
@@ -123,9 +119,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
           );
         },
       );
-
     }
-
   }
 
   void goBack() {
@@ -365,36 +359,38 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
         components: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
-          Text(
-            "O que você busca dentro do app?",
-            style: TextStyle(fontSize: 18),
-          ),
-          SizedBox(height: 10,),
-          TextFormField(
-            autovalidate: true,
-            enableInteractiveSelection: false,
-            textInputAction: TextInputAction.done,
-            controller: _textController,
-            maxLength: 200,
-            maxLines: 3,
-            decoration: InputDecoration(
-              hintText: "Descreva o que você busca no app em 200 caracteres",
+            Text(
+              "O que você busca dentro do app?",
+              style: TextStyle(fontSize: 18),
             ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return "Preencha o campo";
-              }
-              return null;
-            },
-          )
-        ],));
+            SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+              autovalidate: true,
+              enableInteractiveSelection: false,
+              textInputAction: TextInputAction.done,
+              controller: _textController,
+              maxLength: 200,
+              maxLines: 3,
+              decoration: InputDecoration(
+                hintText: "Descreva o que você busca no app em 200 caracteres",
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return "Preencha o campo";
+                }
+                return null;
+              },
+            )
+          ],
+        ));
   }
 
   List<Widget> buildPages(
     BuildContext context,
   ) {
-    _pages = [page1(), page2(),page3()];
+    _pages = [page1(), page2(), page3()];
     return _pages;
   }
 
@@ -548,9 +544,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: BackButton(
-              color: Colors.black
-          ),
+          leading: BackButton(color: Colors.black),
           title: Text(
             "Queremos te Conhecer!",
             style: TextStyle(fontWeight: FontWeight.w500, color: Colors.black),

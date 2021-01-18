@@ -11,9 +11,11 @@ class _CoursePageState extends State<CoursePage>
   final double infoHeight = 364.0;
   AnimationController animationController;
   Animation<double> animation;
+
   double opacity1 = 0.0;
   double opacity2 = 0.0;
   double opacity3 = 0.0;
+
   @override
   void initState() {
     animationController = AnimationController(
