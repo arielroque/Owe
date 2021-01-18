@@ -125,7 +125,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         fontSize: 25,
                         color: Colors.black,
                         fontWeight: FontWeight.w600)),
-                CityLineChart()
+                UserPerformanceChart()
               ],
             ),
           ),

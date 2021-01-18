@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:owe/owe/models/user_perfomance.dart';
 import 'package:owe/owe/utils/color_theme.dart';
 
-class CityLineChart extends StatelessWidget {
+class UserPerformanceChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // set x-axis here so that both lines can use it
     final xAxis = new ChartAxis<String>();
 
     return new AspectRatio(
@@ -15,12 +14,10 @@ class CityLineChart extends StatelessWidget {
       child: new LineChart(
         chartPadding: new EdgeInsets.fromLTRB(60.0, 20.0, 30.0, 30.0),
         lines: [
-          // coolness line
-
           new Line<UserPerformance, String, int>(
             data: metric1,
-            xFn: (city) => city.name,
-            yFn: (city) => city.size,
+            xFn: (metric) => metric.name,
+            yFn: (metric) => metric.size,
             xAxis: xAxis,
             yAxis: new ChartAxis(
               span: new IntSpan(0, 10),
@@ -43,8 +40,8 @@ class CityLineChart extends StatelessWidget {
           // size line
           new Line<UserPerformance, String, int>(
             data: metric2,
-            xFn: (city) => city.name,
-            yFn: (city) => city.size,
+            xFn: (metric) => metric.name,
+            yFn: (metric) => metric.size,
             xAxis: xAxis,
             yAxis: new ChartAxis(
               span: new IntSpan(0, 10),

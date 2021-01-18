@@ -1,9 +1,11 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:owe/owe/presentation/pages/home/home_navigation.dart';
-import 'package:owe/owe/presentation/pages/trails/professionalizing/professionalizing_page.dart';
+import 'package:dio/dio.dart';
+import 'package:owe/owe/utils/constants.dart';
 
 class QuestionnairePage extends StatefulWidget {
   static const String id = "questionnaire_page";
@@ -16,6 +18,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   final _pageViewController = PageController();
   final _formKey = GlobalKey<FormState>();
 
+  
   List<Widget> _pages;
   List<String> ageRangeList = [
     "menor que 18",
@@ -56,13 +59,12 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     "Pariconha",
   ];
 
-  List<String> stateList = [
+  List<String> doCourseList = [
     "Sim",
     "não",
     "Ainda não decidi"
   ];
-
-
+  
   double _formProgress = 0.15;
 
   bool suggestionsRemovable = false;
@@ -70,20 +72,60 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
 
   String ageRangeSelected;
   String schoolingSelected;
-  String timeToActivitySelected;
+  String activityTime;
   String familiarAverageSalarySelected;
-  String stateSelected;
+  String doCourseSelected;
   String citySelected;
 
-  final _textControllers = [
-    TextEditingController(),
-    TextEditingController(),
-    TextEditingController(),
-    TextEditingController()
-  ];
+  final _textController = TextEditingController();
 
   void saveQuestionnaire() async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => HomeNavigation(),));
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Dialog(
+          child:  Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+               CircularProgressIndicator(),
+              SizedBox(width: 5,),
+               Text("Registrando"),
+            ],
+          ),
+        );
+      },
+    );
+
+    String userWish = _textController.text;
+    
+    Response response = await Dio().post("https://owe-monolithic.herokuapp.com/registerUserData", data: {"age_range": ageRangeSelected, "schooling":
+    schoolingSelected,"average_salary":familiarAverageSalarySelected,"do_course":doCourseSelected,"activity time":activityTime,
+      "user_wish":userWish});
+
+
+    if(response.data["status"] == Constants.success){
+      Navigator.push(context, MaterialPageRoute(builder: (context) => HomeNavigation(),));
+    }
+    else{
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return Dialog(
+            child: new Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                new Text("Ocorreu um erro, tente novamente"),
+              ],
+            ),
+          );
+        },
+      );
+
+    }
+
   }
 
   void goBack() {
@@ -249,7 +291,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
               height: 10,
             ),
             DropdownButtonFormField<String>(
-              value: stateSelected,
+              value: doCourseSelected,
               iconSize: 24,
               isExpanded: true,
               hint: Text("Clique Aqui"),
@@ -264,10 +306,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
               style: TextStyle(color: Colors.black),
               onChanged: (String value) {
                 setState(() {
-                  stateSelected = value;
+                  doCourseSelected = value;
                 });
               },
-              items: stateList.map<DropdownMenuItem<String>>((String value) {
+              items: doCourseList.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
@@ -285,7 +327,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
               height: 10,
             ),
             DropdownButtonFormField<String>(
-              value: timeToActivitySelected,
+              value: activityTime,
               iconSize: 24,
               isExpanded: true,
               hint: Text("Clique Aqui"),
@@ -300,7 +342,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
               style: TextStyle(color: Colors.black),
               onChanged: (String value) {
                 setState(() {
-                  timeToActivitySelected = value;
+                  activityTime = value;
                 });
               },
               items: timeToPlayActivitiesList
@@ -333,7 +375,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
             autovalidate: true,
             enableInteractiveSelection: false,
             textInputAction: TextInputAction.done,
-            controller: _textControllers[0],
+            controller: _textController,
             maxLength: 200,
             maxLines: 3,
             decoration: InputDecoration(
@@ -392,7 +434,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                     ),
                   ),
                   onPressed: () {
-                    _textControllers[pageIndex].text = suggestion;
+                    _textController.text = suggestion;
                   },
                 ),
         ));

@@ -33,6 +33,7 @@ dependencies:
   step_progress_indicator: ^0.2.5+8
   url_launcher: ^5.7.10
   fcharts: ^0.0.11
+  dio: ^3.0.10
 
 
   # The following adds the Cupertino Icons font to your application.
