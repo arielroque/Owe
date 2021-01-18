@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Olá, @Thamires",
+                        "Olá, @Tamires",
                         style: TextStyle(
                             fontSize: 30,
                             color: Colors.white,

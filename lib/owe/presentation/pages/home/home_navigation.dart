@@ -9,7 +9,7 @@ class HomeNavigation extends StatefulWidget {
 
 class _HomeNavigationState extends State<HomeNavigation> {
 
-  int _index = 0;
+  int _index = 1;
 
   final List<Widget> _screens = [
     HomePage(),

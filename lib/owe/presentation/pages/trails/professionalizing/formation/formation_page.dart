@@ -179,6 +179,7 @@ class _FormationPageState extends State<FormationPage>
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.white, //Changing this will change the color of the TabBar
       ),
@@ -188,7 +189,7 @@ class _FormationPageState extends State<FormationPage>
           backgroundColor: Colors.white,
           appBar: AppBar(
               leading: BackButton(color: Colors.black),
-              title: Text("Formações",
+              title: Text("Cursos",
                   style:
                   TextStyle(fontWeight: FontWeight.w500, color: Colors.black)),
             bottom: TabBar(
@@ -221,12 +222,12 @@ class _FormationPageState extends State<FormationPage>
                       return ListView.builder(
                         padding: const EdgeInsets.only(
                             top: 0, bottom: 0, right: 16, left: 16),
-                        itemCount: Course.popularCourseList.length,
+                        itemCount: Course.popularFormations.length,
                         itemBuilder: (BuildContext context, int index) {
                           final int count =
                           Course.popularCourseList.length > 10
                               ? 10
-                              : Course.popularCourseList.length;
+                              : Course.popularFormations.length;
                           final Animation<double> animation =
                           Tween<double>(begin: 0.0, end: 1.0).animate(
                               CurvedAnimation(
@@ -241,7 +242,7 @@ class _FormationPageState extends State<FormationPage>
                             child: Container(
                               height: 150,
                               child: FormationCardWidget(
-                                course: Course.popularCourseList[index],
+                                course: Course.popularFormations[index],
                                 animation: animation,
                                 animationController: animationController,
                                 callback: () {},

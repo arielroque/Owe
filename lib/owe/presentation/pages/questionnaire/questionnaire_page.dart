@@ -57,12 +57,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   ];
 
   List<String> stateList = [
-    "Acre (AC)",
-    "Alagoas (AL)",
-    "Amapá (AP)",
-    "Amazonas (AM)",
-    "Bahia (BA)",
-    "Ceará (CE)"
+    "Sim",
+    "não",
+    "Ainda não decidi"
   ];
 
 
@@ -245,7 +242,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Qual o estado em que vive?",
+              "Você pretende fazer um curso profissionalizante?",
               style: TextStyle(fontSize: 18),
             ),
             SizedBox(
@@ -259,7 +256,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
               elevation: 16,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return "Selecione a faixa etária";
+                  return "Selecione uma alternativa";
                 }
                 return null;
               },
@@ -271,43 +268,6 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                 });
               },
               items: stateList.map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              "Qual a cidade em que você vive?",
-              style: TextStyle(fontSize: 18),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            DropdownButtonFormField<String>(
-              value: citySelected,
-              iconSize: 24,
-              isExpanded: true,
-              hint: Text("Clique Aqui"),
-              elevation: 16,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return "Selecione sua escolaridade";
-                }
-                return null;
-              },
-              autovalidate: true,
-              style: TextStyle(color: Colors.black),
-              onChanged: (String value) {
-                setState(() {
-                  citySelected = value;
-                });
-              },
-              items:
-                  cityList.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
@@ -375,7 +335,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
             textInputAction: TextInputAction.done,
             controller: _textControllers[0],
             maxLength: 200,
-            maxLines: 5,
+            maxLines: 3,
             decoration: InputDecoration(
               hintText: "Descreva o que você busca no app em 200 caracteres",
             ),

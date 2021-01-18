@@ -4,7 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:owe/owe/models/course.dart';
+import 'package:owe/owe/models/oportunity.dart';
 import 'package:owe/owe/presentation/widgets/formation_card_widget.dart';
+import 'package:owe/owe/presentation/widgets/oportunity_card_widget.dart';
 import 'package:owe/owe/utils/color_theme.dart';
 
 class OportunitiesPage extends StatefulWidget {
@@ -48,12 +50,9 @@ class _OportunitiesPageState extends State<OportunitiesPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
-          leading: BackButton(
-              color: Colors.black
-          ),
-          title: Text("Oportunidades",
+          leading: BackButton(color: Colors.black),
+          title: Text("Mural de Oportunidades",
               style:
                   TextStyle(fontWeight: FontWeight.w500, color: Colors.black))),
       body: FutureBuilder<bool>(
@@ -63,31 +62,29 @@ class _OportunitiesPageState extends State<OportunitiesPage>
             return const SizedBox();
           } else {
             return ListView.builder(
-              padding: const EdgeInsets.only(
-                  top: 0, bottom: 0, right: 16, left: 16),
-              itemCount: Course.popularCourseList.length,
+              padding:
+                  const EdgeInsets.only(top: 0, bottom: 0, right: 16, left: 16),
+              itemCount: Oportunity.oportunitiesList.length,
               itemBuilder: (BuildContext context, int index) {
-                final int count = Course.popularCourseList.length > 10
+                final int count = Oportunity.oportunitiesList.length > 10
                     ? 10
-                    : Course.popularCourseList.length;
+                    : Oportunity.oportunitiesList.length;
                 final Animation<double> animation =
-                Tween<double>(begin: 0.0, end: 1.0).animate(
-                    CurvedAnimation(
+                    Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
                         parent: animationController,
                         curve: Interval((1 / count) * index, 1.0,
                             curve: Curves.fastOutSlowIn)));
                 animationController.forward();
 
                 return Padding(
-                  padding: const EdgeInsets.only(top: 5,bottom: 5),
+                  padding: const EdgeInsets.only(top: 5, bottom: 5),
                   child: Container(
                     height: 150,
-                    child: FormationCardWidget(
-                      course: Course.popularCourseList[index],
+                    child: OportunityCardWidget(
+                      oportunity: Oportunity.oportunitiesList[index],
                       animation: animation,
                       animationController: animationController,
-                      callback: () {
-                      },
+                      callback: () {},
                     ),
                   ),
                 );

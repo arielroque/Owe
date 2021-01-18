@@ -1,19 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:owe/owe/models/course.dart';
+import 'package:owe/owe/models/oportunity.dart';
 import 'package:owe/owe/utils/color_theme.dart';
 
-class FormationCardWidget extends StatelessWidget {
-  const FormationCardWidget(
+class OportunityCardWidget extends StatelessWidget {
+  const OportunityCardWidget(
       {Key key,
-      this.course,
+      this.oportunity,
       this.animationController,
       this.animation,
       this.callback})
       : super(key: key);
 
   final VoidCallback callback;
-  final Course course;
+  final Oportunity oportunity;
   final AnimationController animationController;
   final Animation<dynamic> animation;
 
@@ -62,7 +63,7 @@ class FormationCardWidget extends StatelessWidget {
                                             padding:
                                                 const EdgeInsets.only(top: 16),
                                             child: Text(
-                                              course.title,
+                                              oportunity.title,
                                               textAlign: TextAlign.left,
                                               style: TextStyle(
                                                   fontWeight: FontWeight.w600,
@@ -84,39 +85,20 @@ class FormationCardWidget extends StatelessWidget {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.center,
                                               children: <Widget>[
-                                                Text(
-                                                  '${course.lessonCount} aulas',
-                                                  textAlign: TextAlign.left,
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w300,
-                                                    fontSize: 14,
-                                                    letterSpacing: 0.27,
-                                                    color: Colors.grey,
-                                                  ),
+                                                Column(
+                                                  children: [
+                                                    Text(
+                                                      'Oferecido por: ${oportunity.company}',
+                                                      textAlign: TextAlign.left,
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w300,
+                                                        fontSize: 15,
+                                                        letterSpacing: 0.27,
+                                                        color: Colors.grey,
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
-                                                Container(
-                                                  child: Row(
-                                                    children: <Widget>[
-                                                      Text(
-                                                        '${course.rating}',
-                                                        textAlign:
-                                                            TextAlign.left,
-                                                        style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.w200,
-                                                          fontSize: 18,
-                                                          letterSpacing: 0.27,
-                                                          color: Colors.grey,
-                                                        ),
-                                                      ),
-                                                      Icon(
-                                                        Icons.star,
-                                                        color: ColorThemeApp.primaryColor,
-                                                        size: 20,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                )
                                               ],
                                             ),
                                           ),
@@ -126,11 +108,20 @@ class FormationCardWidget extends StatelessWidget {
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
-                                                      .end,
+                                                      .spaceBetween,
                                               crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
+                                                  CrossAxisAlignment.start,
                                               children: <Widget>[
-
+                                                Text(
+                                                  '${oportunity.count}',
+                                                  textAlign: TextAlign.left,
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 18,
+                                                    letterSpacing: 0.27,
+                                                    color: ColorThemeApp.primaryColor,
+                                                  ),
+                                                ),
                                                 Container(
                                                   decoration: BoxDecoration(
                                                     color: ColorThemeApp.primaryColor,
@@ -174,7 +165,7 @@ class FormationCardWidget extends StatelessWidget {
                                   const BorderRadius.all(Radius.circular(16.0)),
                               child: AspectRatio(
                                   aspectRatio: 1.0,
-                                  child: Image.asset(course.imagePath,width: 10,)),
+                                  child: Image.asset(oportunity.imagePath,width: 10,)),
                             )
                           ],
                         ),

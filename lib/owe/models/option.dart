@@ -15,14 +15,14 @@ class Option {
 
   static List<Option> homeOptions = <Option>[
     Option(
-      image: 'assets/images/trails/entrepreneur_trail.png',
+      image: 'assets/images/trails/profissionalizing_trail.png',
       title: 'Recomeço',
       description: "Receba microcertificações \nao avançar nas trilhas \nde aprendizagem.",
       color: Color(0xffC2D1F0)),
     Option(
       image: 'assets/images/trails/entrepreneur_trail.png',
       title: 'Cursos',
-      description: 'Veja quais são os cursos \nprofissionalizantes \ndisponívei online \n e presenciais.',
+      description: 'Veja quais são os cursos \nprofissionalizantes \ndisponíveis online \n e presenciais.',
       color: Color(0xffF8CCE0)
     ),
     Option(

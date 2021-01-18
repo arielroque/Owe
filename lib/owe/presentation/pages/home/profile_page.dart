@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:owe/owe/presentation/widgets/line_chart_widget.dart';
 import 'package:owe/owe/utils/color_theme.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
@@ -33,7 +34,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 Image.asset("assets/images/persona/persona.png")
                                     .image))),
                 Text(
-                  "@Thamires",
+                  "@Tamires",
                   style: TextStyle(
                       fontSize: 30,
                       color: Colors.white,
@@ -57,7 +58,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
           StepProgressIndicator(
-            totalSteps: 4,
+            totalSteps: 3,
             padding: 1.0,
             size: 20,
             customStep: (index, color, _) => index == 0
@@ -70,15 +71,10 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: Colors.green,
                         child: Text("EF2"),
                       )
-                    : index == 2
-                        ? Container(
-                            color: Colors.green,
-                            child: Text("EM"),
-                          )
-                        : Container(
-                            color: Colors.deepOrange,
-                            child: Text("ES"),
-                          ),
+                    : Container(
+                        color: Colors.red,
+                        child: Text("EM"),
+                      ),
             customColor: (index) =>
                 index <= 2 ? Colors.green : Colors.deepOrange,
           ),
@@ -97,7 +93,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   textInputAction: TextInputAction.done,
                   maxLines: 5,
                   decoration: InputDecoration(
-                    hintText: "Sou toooper",
+                    hintText:
+                        "Bem, eu procuro um curso que possa me dar a possibilidade de ter um emprego, pois faz muito tempo que parei os estudos e agora sinto a necessidade de ter uma renda pra ajudar aos meus pais.",
                   ),
                 ),
               ],
@@ -121,12 +118,14 @@ class _ProfilePageState extends State<ProfilePage> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("Desempenho",
                     style: TextStyle(
                         fontSize: 25,
                         color: Colors.black,
                         fontWeight: FontWeight.w600)),
+                CityLineChart()
               ],
             ),
           ),
