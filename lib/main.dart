@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:owe/owe/presentation/pages/home/home_navigation.dart';
 import 'package:owe/owe/presentation/pages/splash/splash_page.dart';
-import 'package:owe/owe/presentation/pages/trails/professionalizing/beginning/course_page.dart';
-import 'package:owe/owe/presentation/pages/trails/professionalizing/formation/formation_page.dart';
-import 'package:owe/owe/presentation/pages/trails/professionalizing/oportunities/oportunities_page.dart';
-
 import 'owe/utils/color_theme.dart';
 
 void main() {

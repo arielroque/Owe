@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:owe/owe/models/option.dart';
 import 'package:owe/owe/presentation/pages/trails/professionalizing/beginning/beginnner_trail_page.dart';
 import 'package:owe/owe/presentation/pages/trails/professionalizing/formation/formation_page.dart';
-import 'package:owe/owe/presentation/pages/trails/professionalizing/oportunities/oportunities_page.dart';
-import 'package:owe/owe/presentation/pages/trails/professionalizing/professionalizing_page.dart';
+import 'package:owe/owe/presentation/pages/trails/professionalizing/opportunities/opportunities_page.dart';
 import 'package:owe/owe/utils/color_theme.dart';
 
 class HomePage extends StatefulWidget {
@@ -86,7 +85,7 @@ class _HomePageState extends State<HomePage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => OportunitiesPage(),
+                                builder: (context) => OpportunitiesPage(),
                               ));
                         }
                       },

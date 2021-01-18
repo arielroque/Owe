@@ -1,5 +1,5 @@
-class Oportunity {
-  Oportunity({
+class Opportunity {
+  Opportunity({
     this.title = '',
     this.imagePath = '',
     this.count = '',
@@ -14,8 +14,8 @@ class Oportunity {
   String imagePath;
   String description;
 
-  static List<Oportunity> oportunitiesList = <Oportunity>[
-    Oportunity(
+  static List<Opportunity> oportunitiesList = <Opportunity>[
+    Opportunity(
       imagePath: 'assets/images/trails/oportunity.png',
       title: 'Auxiliar de maquinista',
       count: '13 vagas',
@@ -23,7 +23,7 @@ class Oportunity {
       description: "Necessita-se de curso profissionalizante de auxiliar de maquinista e é desejável ensino fundamental completo. "
     ),
 
-    Oportunity(
+    Opportunity(
       imagePath: 'assets/images/trails/oportunity.png',
       title: 'Maquinista',
       count: '5 vagas',
@@ -31,7 +31,7 @@ class Oportunity {
       description: "Necessita-se  de curso profissionalizante de Maquinista e é desejável ensino médio cursando ou completo. "
     ),
 
-    Oportunity(
+    Opportunity(
       imagePath: 'assets/images/trails/oportunity.png',
       title: 'Operador de Trem',
       count: '8 vagas',

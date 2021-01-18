@@ -6,15 +6,15 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:owe/owe/models/course.dart';
 import 'package:owe/owe/models/oportunity.dart';
 import 'package:owe/owe/presentation/widgets/formation_card_widget.dart';
-import 'package:owe/owe/presentation/widgets/oportunity_card_widget.dart';
+import 'package:owe/owe/presentation/widgets/opportunity_card_widget.dart';
 import 'package:owe/owe/utils/color_theme.dart';
 
-class OportunitiesPage extends StatefulWidget {
+class OpportunitiesPage extends StatefulWidget {
   @override
-  _OportunitiesPageState createState() => _OportunitiesPageState();
+  _OpportunitiesPageState createState() => _OpportunitiesPageState();
 }
 
-class _OportunitiesPageState extends State<OportunitiesPage>
+class _OpportunitiesPageState extends State<OpportunitiesPage>
     with TickerProviderStateMixin {
   AnimationController animationController;
 
@@ -64,11 +64,11 @@ class _OportunitiesPageState extends State<OportunitiesPage>
             return ListView.builder(
               padding:
                   const EdgeInsets.only(top: 0, bottom: 0, right: 16, left: 16),
-              itemCount: Oportunity.oportunitiesList.length,
+              itemCount: Opportunity.oportunitiesList.length,
               itemBuilder: (BuildContext context, int index) {
-                final int count = Oportunity.oportunitiesList.length > 10
+                final int count = Opportunity.oportunitiesList.length > 10
                     ? 10
-                    : Oportunity.oportunitiesList.length;
+                    : Opportunity.oportunitiesList.length;
                 final Animation<double> animation =
                     Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
                         parent: animationController,
@@ -80,8 +80,8 @@ class _OportunitiesPageState extends State<OportunitiesPage>
                   padding: const EdgeInsets.only(top: 5, bottom: 5),
                   child: Container(
                     height: 150,
-                    child: OportunityCardWidget(
-                      oportunity: Oportunity.oportunitiesList[index],
+                    child: OpportunityCardWidget(
+                      opportunity: Opportunity.oportunitiesList[index],
                       animation: animation,
                       animationController: animationController,
                       callback: () {},

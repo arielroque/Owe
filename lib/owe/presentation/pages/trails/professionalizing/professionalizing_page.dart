@@ -4,8 +4,8 @@ import 'package:flutter_circular_chart/flutter_circular_chart.dart';
 import 'package:owe/owe/models/professionalizing_option.dart';
 import 'package:owe/owe/presentation/pages/trails/professionalizing/beginning/beginnner_trail_page.dart';
 import 'package:owe/owe/presentation/pages/trails/professionalizing/formation/formation_page.dart';
-import 'package:owe/owe/presentation/pages/trails/professionalizing/oportunities/oportunities_page.dart';
 import 'package:owe/owe/utils/color_theme.dart';
+import 'opportunities/opportunities_page.dart';
 
 class ProfessionalizingPage extends StatefulWidget {
   @override
@@ -83,7 +83,7 @@ class _ProfessionalizingPageState extends State<ProfessionalizingPage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => OportunitiesPage(),
+                          builder: (context) => OpportunitiesPage(),
                         ));
                   }
                 },

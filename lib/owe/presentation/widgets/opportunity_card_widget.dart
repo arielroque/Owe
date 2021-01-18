@@ -4,17 +4,17 @@ import 'package:owe/owe/models/course.dart';
 import 'package:owe/owe/models/oportunity.dart';
 import 'package:owe/owe/utils/color_theme.dart';
 
-class OportunityCardWidget extends StatelessWidget {
-  const OportunityCardWidget(
+class OpportunityCardWidget extends StatelessWidget {
+  const OpportunityCardWidget(
       {Key key,
-      this.oportunity,
+      this.opportunity,
       this.animationController,
       this.animation,
       this.callback})
       : super(key: key);
 
   final VoidCallback callback;
-  final Oportunity oportunity;
+  final Opportunity opportunity;
   final AnimationController animationController;
   final Animation<dynamic> animation;
 
@@ -63,7 +63,7 @@ class OportunityCardWidget extends StatelessWidget {
                                             padding:
                                                 const EdgeInsets.only(top: 16),
                                             child: Text(
-                                              oportunity.title,
+                                              opportunity.title,
                                               textAlign: TextAlign.left,
                                               style: TextStyle(
                                                   fontWeight: FontWeight.w600,
@@ -88,7 +88,7 @@ class OportunityCardWidget extends StatelessWidget {
                                                 Column(
                                                   children: [
                                                     Text(
-                                                      'Oferecido por: ${oportunity.company}',
+                                                      'Oferecido por: ${opportunity.company}',
                                                       textAlign: TextAlign.left,
                                                       style: TextStyle(
                                                         fontWeight: FontWeight.w300,
@@ -113,7 +113,7 @@ class OportunityCardWidget extends StatelessWidget {
                                                   CrossAxisAlignment.start,
                                               children: <Widget>[
                                                 Text(
-                                                  '${oportunity.count}',
+                                                  '${opportunity.count}',
                                                   textAlign: TextAlign.left,
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w600,
@@ -165,7 +165,7 @@ class OportunityCardWidget extends StatelessWidget {
                                   const BorderRadius.all(Radius.circular(16.0)),
                               child: AspectRatio(
                                   aspectRatio: 1.0,
-                                  child: Image.asset(oportunity.imagePath,width: 10,)),
+                                  child: Image.asset(opportunity.imagePath,width: 10,)),
                             )
                           ],
                         ),
